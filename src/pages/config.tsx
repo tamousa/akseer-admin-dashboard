@@ -47,21 +47,21 @@ export default function Config() {
     <div className="space-y-6 animate-in fade-in duration-500 max-w-5xl pb-10">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-[#1e0a2e]">{t("إعدادات التطبيق", "App Settings")}</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-[#0D1B2A]">{t("إعدادات التطبيق", "App Settings")}</h1>
           <p className="text-gray-500 mt-1">{t("إدارة الإعدادات العامة والتكوين الأساسي لمنصة أكسير", "Manage general settings and core configuration of the Akseer platform")}</p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-1 space-y-6">
-          <Card className="border-none shadow-sm bg-gradient-to-b from-[#1e0a2e] to-[#3a1c52] text-white">
+          <Card className="border-none shadow-sm bg-gradient-to-b from-[#0D1B2A] to-[#3a1c52] text-white">
             <CardContent className="p-6">
-              <Settings2 className="w-8 h-8 mb-4 text-[#A86DBF]" />
+              <Settings2 className="w-8 h-8 mb-4 text-[#00C4A0]" />
               <h3 className="text-xl font-bold mb-2">{t("تحديث التكوين", "Update Configuration")}</h3>
               <p className="text-white/70 text-sm leading-relaxed mb-6">
                 {t("تؤثر هذه الإعدادات مباشرة على تجربة المستخدمين والأعمال في التطبيق. يرجى مراجعة التغييرات قبل الحفظ.", "These settings directly affect the experience of users and businesses in the app. Please review changes before saving.")}
               </p>
-              <Button onClick={handleSave} disabled={updateMutation.isPending} className="w-full bg-[#A86DBF] hover:bg-white hover:text-[#7C2D97] transition-colors gap-2 font-bold">
+              <Button onClick={handleSave} disabled={updateMutation.isPending} className="w-full bg-[#00C4A0] hover:bg-white hover:text-[#007A65] transition-colors gap-2 font-bold">
                 <Save className="w-4 h-4" /> {t("حفظ كافة الإعدادات", "Save All Settings")}
               </Button>
             </CardContent>
@@ -70,7 +70,7 @@ export default function Config() {
           <Card className="border-none shadow-sm">
             <CardContent className="p-4 space-y-4">
               {[
-                { icon: <Globe className="w-4 h-4" />, label: t("هوية التطبيق", "App Identity"), bg: "bg-purple-100 text-purple-600" },
+                { icon: <Globe className="w-4 h-4" />, label: t("هوية التطبيق", "App Identity"), bg: "bg-teal-100 text-teal-600" },
                 { icon: <Phone className="w-4 h-4" />, label: t("التواصل والدعم", "Contact & Support"), bg: "bg-blue-100 text-blue-600" },
                 { icon: <Shield className="w-4 h-4" />, label: t("إعدادات التشغيل", "Operations Settings"), bg: "bg-emerald-100 text-emerald-600" },
               ].map((item, i) => (
@@ -86,7 +86,7 @@ export default function Config() {
         <div className="lg:col-span-2 space-y-6">
           <Card className="border-none shadow-sm">
             <CardHeader className="border-b border-gray-100 bg-white rounded-t-xl pb-4">
-              <CardTitle className="flex items-center gap-2 text-lg"><Globe className="w-5 h-5 text-[#7C2D97]" /> {t("هوية التطبيق", "App Identity")}</CardTitle>
+              <CardTitle className="flex items-center gap-2 text-lg"><Globe className="w-5 h-5 text-[#007A65]" /> {t("هوية التطبيق", "App Identity")}</CardTitle>
               <CardDescription>{t("الأسماء والنصوص التوضيحية التي تظهر للمستخدمين", "Names and descriptions shown to users")}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6 pt-6 bg-white rounded-b-xl">

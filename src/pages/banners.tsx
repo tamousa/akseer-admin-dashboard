@@ -99,12 +99,12 @@ export default function Banners() {
     <div className="space-y-6 animate-in fade-in duration-500 pb-10">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-[#1e0a2e]">{t("البنرات الإعلانية", "Ad Banners")}</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-[#0D1B2A]">{t("البنرات الإعلانية", "Ad Banners")}</h1>
           <p className="text-gray-500 mt-1">{t("إدارة المساحات الإعلانية والبنرات الترويجية في التطبيق", "Manage advertising spaces and promotional banners in the app")}</p>
         </div>
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
-            <Button className="bg-[#7C2D97] hover:bg-[#5a1f6e] gap-2 shadow-sm">
+            <Button className="bg-[#007A65] hover:bg-[#5a1f6e] gap-2 shadow-sm">
               <Plus className="w-4 h-4" /> {t("إضافة بنر جديد", "Add New Banner")}
             </Button>
           </DialogTrigger>
@@ -148,7 +148,7 @@ export default function Banners() {
                   <Input required type="number" value={newBanner.priceSAR} onChange={e => setNewBanner({ ...newBanner, priceSAR: Number(e.target.value) })} />
                 </div>
               </div>
-              <Button type="submit" className="w-full mt-6 bg-[#7C2D97] hover:bg-[#5a1f6e]" disabled={createMutation.isPending}>
+              <Button type="submit" className="w-full mt-6 bg-[#007A65] hover:bg-[#5a1f6e]" disabled={createMutation.isPending}>
                 {t("إضافة البنر", "Add Banner")}
               </Button>
             </form>
@@ -184,16 +184,16 @@ export default function Banners() {
                     <span className={`px-2.5 py-1 text-xs rounded-md backdrop-blur-md font-medium shadow-sm ${banner.isActive ? "bg-emerald-500/90 text-white" : "bg-gray-800/80 text-white"}`}>
                       {banner.isActive ? t("نشط", "Active") : t("متوقف", "Paused")}
                     </span>
-                    <span className="px-2.5 py-1 text-xs rounded-md backdrop-blur-md bg-[#1e0a2e]/80 text-white font-medium shadow-sm">
+                    <span className="px-2.5 py-1 text-xs rounded-md backdrop-blur-md bg-[#0D1B2A]/80 text-white font-medium shadow-sm">
                       {getPlacementLabel(banner.placement)}
                     </span>
                   </div>
                 </div>
                 <CardContent className="p-5 flex-1 flex flex-col bg-white">
-                  <h3 className="font-bold text-lg mb-1 truncate text-[#1e0a2e]">{lang === "ar" ? banner.titleAr : (banner.titleEn || banner.titleAr)}</h3>
+                  <h3 className="font-bold text-lg mb-1 truncate text-[#0D1B2A]">{lang === "ar" ? banner.titleAr : (banner.titleEn || banner.titleAr)}</h3>
                   <div className="flex justify-between items-center mb-5">
                     <p className="text-sm text-gray-500 flex items-center gap-1">{t("المعلن:", "Advertiser:")} <span className="font-medium text-gray-800">{banner.advertiserName}</span></p>
-                    <Badge variant="secondary" className="bg-purple-50 text-purple-700 hover:bg-purple-100 border-none">{banner.priceSAR} {t("ر.س", "SAR")}</Badge>
+                    <Badge variant="secondary" className="bg-teal-50 text-teal-700 hover:bg-teal-100 border-none">{banner.priceSAR} {t("ر.س", "SAR")}</Badge>
                   </div>
                   <div className="grid grid-cols-3 gap-2 mb-6 mt-auto">
                     <div className="bg-gray-50 rounded-lg p-2.5 text-center border border-gray-100">

@@ -144,7 +144,7 @@ export default function BusinessDetail() {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-xl font-bold text-[#1e0a2e]">{business.nameAr}</h1>
+                <h1 className="text-xl font-bold text-[#0D1B2A]">{business.nameAr}</h1>
                 {business.status === 'active' && <Badge className="bg-emerald-100 text-emerald-800 hover:bg-emerald-200 border-none">{t("نشط", "Active")}</Badge>}
                 {business.status === 'pending' && <Badge className="bg-amber-100 text-amber-800 hover:bg-amber-200 border-none">{t("انتظار", "Pending")}</Badge>}
                 {business.status === 'inactive' && <Badge className="bg-gray-100 text-gray-800 hover:bg-gray-200 border-none">{t("غير نشط", "Inactive")}</Badge>}
@@ -195,7 +195,7 @@ export default function BusinessDetail() {
             {isEditing ? (
               <div className="flex items-center gap-2">
                 <Button variant="outline" size="sm" onClick={() => setIsEditing(false)}>{t("إلغاء", "Cancel")}</Button>
-                <Button size="sm" className="bg-[#7C2D97] hover:bg-[#5a1f6e]" onClick={handleSaveEdits} disabled={updateMutation.isPending}>
+                <Button size="sm" className="bg-[#007A65] hover:bg-[#5a1f6e]" onClick={handleSaveEdits} disabled={updateMutation.isPending}>
                   <Save className="w-4 h-4 ml-2" /> {t("حفظ", "Save")}
                 </Button>
               </div>
@@ -234,31 +234,31 @@ export default function BusinessDetail() {
                 <>
                   <div className="space-y-1">
                     <p className="text-sm text-gray-500 flex items-center gap-2"><Store className="w-4 h-4" /> {t("اسم المنشأة (عربي/EN)", "Business Name (AR/EN)")}</p>
-                    <p className="font-medium text-[#1e0a2e]">{business.nameAr}</p>
+                    <p className="font-medium text-[#0D1B2A]">{business.nameAr}</p>
                     {business.nameEn && <p className="text-sm text-gray-500" dir="ltr">{business.nameEn}</p>}
                   </div>
                   <div className="space-y-1">
                     <p className="text-sm text-gray-500 flex items-center gap-2"><MapPin className="w-4 h-4" /> {t("المدينة", "City")}</p>
-                    <p className="font-medium text-[#1e0a2e]">{business.city}</p>
+                    <p className="font-medium text-[#0D1B2A]">{business.city}</p>
                   </div>
                 </>
               )}
 
               <div className="space-y-1 pt-4 border-t sm:border-none sm:pt-0">
                 <p className="text-sm text-gray-500 flex items-center gap-2"><User className="w-4 h-4" /> {t("المالك", "Owner")}</p>
-                <p className="font-medium text-[#1e0a2e]">{business.ownerName}</p>
+                <p className="font-medium text-[#0D1B2A]">{business.ownerName}</p>
               </div>
               <div className="space-y-1 pt-4 border-t sm:border-none sm:pt-0">
                 <p className="text-sm text-gray-500 flex items-center gap-2"><Phone className="w-4 h-4" /> {t("رقم الهاتف", "Phone")}</p>
-                <p className="font-medium text-[#1e0a2e]" dir="ltr">{business.phone}</p>
+                <p className="font-medium text-[#0D1B2A]" dir="ltr">{business.phone}</p>
               </div>
               <div className="space-y-1 pt-4 border-t sm:border-none sm:pt-0">
                 <p className="text-sm text-gray-500 flex items-center gap-2"><Mail className="w-4 h-4" /> {t("البريد الإلكتروني", "Email")}</p>
-                <p className="font-medium text-[#1e0a2e]">{business.email}</p>
+                <p className="font-medium text-[#0D1B2A]">{business.email}</p>
               </div>
               <div className="space-y-1 pt-4 border-t sm:border-none sm:pt-0">
                 <p className="text-sm text-gray-500 flex items-center gap-2"><Calendar className="w-4 h-4" /> {t("تاريخ التسجيل", "Registration Date")}</p>
-                <p className="font-medium text-[#1e0a2e]" dir="ltr">{format(new Date(business.createdAt), 'yyyy-MM-dd HH:mm')}</p>
+                <p className="font-medium text-[#0D1B2A]" dir="ltr">{format(new Date(business.createdAt), 'yyyy-MM-dd HH:mm')}</p>
               </div>
             </div>
           </CardContent>
@@ -290,7 +290,7 @@ export default function BusinessDetail() {
             </CardContent>
           </Card>
           
-          <Card className="shadow-sm border-none bg-gradient-to-br from-indigo-50 to-purple-50">
+          <Card className="shadow-sm border-none bg-gradient-to-br from-teal-50 to-emerald-50">
             <CardContent className="p-6 text-center">
               <p className="text-sm text-gray-500 mb-2">{t("الباقة الحالية", "Current Plan")}</p>
               <Badge className={`text-base py-1 px-4 border-none shadow-sm ${PLAN_COLORS[business.subscriptionPlan] || "bg-white text-gray-800"}`}>

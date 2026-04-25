@@ -144,7 +144,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const SidebarContent = ({ onNavigate }: { onNavigate?: () => void }) => (
     <>
       <div className="h-[70px] px-6 border-b border-white/10 flex items-center gap-3 shrink-0">
-        <div className="w-9 h-9 bg-[#A86DBF] rounded-xl flex items-center justify-center font-bold text-lg shadow-lg text-white">أ</div>
+        <div className="w-9 h-9 rounded-xl overflow-hidden shrink-0 shadow-lg">
+          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+            <rect width="36" height="36" rx="9" fill="#0D1B2A"/>
+            <defs>
+              <linearGradient id="flameGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#00E0B8"/>
+                <stop offset="100%" stopColor="#007A65"/>
+              </linearGradient>
+            </defs>
+            <path d="M18 4 C18 4 10 12 10 19 C10 23.4 13.6 27 18 27 C22.4 27 26 23.4 26 19 C26 12 18 4 18 4Z" fill="url(#flameGrad)"/>
+            <circle cx="18" cy="10" r="3.5" fill="#00E0B8" opacity="0.9"/>
+            <path d="M15 18 Q16 14 18 13 Q16 17 15.5 21 Z" fill="rgba(255,255,255,0.4)"/>
+            <text x="18" y="33" textAnchor="middle" fontFamily="Cairo,sans-serif" fontSize="6" fontWeight="bold" fill="#00E0B8">أكسير</text>
+          </svg>
+        </div>
         <div>
           <h1 className="text-xl font-bold leading-none">{t("أكسير", "Akseer")}</h1>
           <p className="text-[10px] text-white/50 mt-0.5">{t("لوحة التحكم", "Admin Panel")}</p>
@@ -179,7 +193,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className={`min-h-[100dvh] bg-[#F3F4F6] flex ${isRTL ? "flex-row" : "flex-row-reverse"}`}>
       {/* Desktop Sidebar */}
-      <aside className="w-[255px] bg-[#1e0a2e] text-white flex-col hidden md:flex shrink-0 z-20 shadow-xl">
+      <aside className="w-[255px] bg-[#0D1B2A] text-white flex-col hidden md:flex shrink-0 z-20 shadow-xl">
         <SidebarContent />
       </aside>
 
@@ -187,7 +201,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
         <SheetContent
           side={isRTL ? "right" : "left"}
-          className="w-[260px] p-0 bg-[#1e0a2e] text-white border-none [&>button]:hidden"
+          className="w-[260px] p-0 bg-[#0D1B2A] text-white border-none [&>button]:hidden"
           dir={isRTL ? "rtl" : "ltr"}
         >
           <div className="flex flex-col h-full">
@@ -203,15 +217,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center gap-3">
             {/* Mobile hamburger */}
             <button
-              className="md:hidden p-2 text-gray-600 hover:text-[#7C2D97] hover:bg-gray-100 rounded-lg transition-colors"
+              className="md:hidden p-2 text-gray-600 hover:text-[#007A65] hover:bg-gray-100 rounded-lg transition-colors"
               onClick={() => setMobileOpen(true)}
             >
               <Menu className="w-5 h-5" />
             </button>
-            <h2 className="text-lg font-bold text-[#1e0a2e] hidden md:block">{t("لوحة التحكم", "Admin Dashboard")}</h2>
+            <h2 className="text-lg font-bold text-[#0D1B2A] hidden md:block">{t("لوحة التحكم", "Admin Dashboard")}</h2>
             <div className="md:hidden flex items-center gap-2">
-              <div className="w-7 h-7 bg-[#A86DBF] rounded-lg flex items-center justify-center text-white font-bold text-sm">أ</div>
-              <span className="text-base font-bold text-[#1e0a2e]">{t("أكسير", "Akseer")}</span>
+              <div className="w-7 h-7 bg-[#00C4A0] rounded-lg flex items-center justify-center text-white font-bold text-sm">أ</div>
+              <span className="text-base font-bold text-[#0D1B2A]">{t("أكسير", "Akseer")}</span>
             </div>
           </div>
 
@@ -219,7 +233,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             {/* Language toggle */}
             <button
               onClick={toggleLang}
-              className="hidden md:flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-[#7C2D97] hover:bg-[#EDE9FE] rounded-lg transition-colors border border-[#7C2D97]/20"
+              className="hidden md:flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-[#007A65] hover:bg-[#E4F8F5] rounded-lg transition-colors border border-[#007A65]/20"
               title={lang === "ar" ? "Switch to English" : "التبديل للعربية"}
             >
               <Languages className="w-4 h-4" />
@@ -229,7 +243,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             {/* Notifications */}
             <Popover>
               <PopoverTrigger asChild>
-                <button className="relative p-2 text-gray-500 hover:text-[#7C2D97] hover:bg-gray-100 rounded-full transition-colors">
+                <button className="relative p-2 text-gray-500 hover:text-[#007A65] hover:bg-gray-100 rounded-full transition-colors">
                   <Bell className="w-5 h-5" />
                   {unreadNotifications > 0 && (
                     <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
@@ -240,7 +254,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <div className="p-4 border-b bg-gray-50/50 flex justify-between items-center">
                   <h4 className="font-semibold">{t("الإشعارات", "Notifications")}</h4>
                   {unreadNotifications > 0 && (
-                    <span className="text-xs text-[#7C2D97] bg-[#EDE9FE] px-2 py-1 rounded-full font-medium">
+                    <span className="text-xs text-[#007A65] bg-[#E4F8F5] px-2 py-1 rounded-full font-medium">
                       {unreadNotifications} {t("جديد", "new")}
                     </span>
                   )}
@@ -271,7 +285,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Popover>
               <PopoverTrigger asChild>
                 <button className="flex items-center gap-2 hover:bg-gray-50 p-1.5 rounded-lg transition-colors">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#7C2D97] to-[#A86DBF] flex items-center justify-center text-white text-sm font-bold">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#007A65] to-[#00C4A0] flex items-center justify-center text-white text-sm font-bold">
                     {lang === "ar" ? "م" : "A"}
                   </div>
                   <div className={`${isRTL ? "text-right" : "text-left"} hidden md:block`}>

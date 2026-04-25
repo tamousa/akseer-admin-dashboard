@@ -67,7 +67,7 @@ export default function Settlements() {
 
   const distributionData = [
     { name: t("صافي المنشآت (85%)", "Net Businesses (85%)"), value: 85, fill: "#059669" },
-    { name: t("عمولة أكسير (15%)", "Akseer Commission (15%)"), value: 15, fill: "#7C2D97" },
+    { name: t("عمولة أكسير (15%)", "Akseer Commission (15%)"), value: 15, fill: "#007A65" },
   ];
 
   const monthlyData = [
@@ -83,7 +83,7 @@ export default function Settlements() {
     <div className="space-y-6 animate-in fade-in duration-500 pb-10">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-[#1e0a2e]">{t("التسويات المالية", "Financial Settlements")}</h1>
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-[#0D1B2A]">{t("التسويات المالية", "Financial Settlements")}</h1>
           <p className="text-gray-500 mt-1">{t("إدارة توزيع الإيرادات وتحويل المبالغ للمنشآت والكباتن", "Manage revenue distribution and transfers to businesses and drivers")}</p>
         </div>
         <Button onClick={handleBulkSettle} className="bg-emerald-600 hover:bg-emerald-700 gap-2">
@@ -94,7 +94,7 @@ export default function Settlements() {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="border-none shadow-sm bg-gradient-to-br from-[#1e0a2e] to-[#3d1058] text-white">
+        <Card className="border-none shadow-sm bg-gradient-to-br from-[#0D1B2A] to-[#07564A] text-white">
           <CardContent className="p-5">
             <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center mb-3">
               <TrendingUp className="w-5 h-5 text-[#C084FC]" />
@@ -104,7 +104,7 @@ export default function Settlements() {
             <p className="text-white/50 text-xs mt-1">{t("ريال سعودي", "Saudi Riyal")}</p>
           </CardContent>
         </Card>
-        <Card className="border-none shadow-sm bg-gradient-to-br from-violet-600 to-purple-700 text-white">
+        <Card className="border-none shadow-sm bg-gradient-to-br from-teal-600 to-emerald-700 text-white">
           <CardContent className="p-5">
             <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center mb-3">
               <Banknote className="w-5 h-5 text-white" />
@@ -137,11 +137,11 @@ export default function Settlements() {
       </div>
 
       {/* Commission Banner */}
-      <div className="bg-[#EDE9FE] border border-[#C084FC]/30 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+      <div className="bg-[#E4F8F5] border border-[#C084FC]/30 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
         <div className="flex-1">
-          <h4 className="font-bold text-[#1e0a2e] mb-1">{t("آلية توزيع الإيرادات", "Revenue Distribution Model")}</h4>
+          <h4 className="font-bold text-[#0D1B2A] mb-1">{t("آلية توزيع الإيرادات", "Revenue Distribution Model")}</h4>
           <div className="flex flex-wrap gap-4 text-sm text-gray-700">
-            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-[#7C2D97] inline-block"></span> {t("أكسير تأخذ", "Akseer takes")} <strong>15%</strong> {t("عمولة من كل حجز", "commission per booking")}</span>
+            <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-[#007A65] inline-block"></span> {t("أكسير تأخذ", "Akseer takes")} <strong>15%</strong> {t("عمولة من كل حجز", "commission per booking")}</span>
             <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block"></span> {t("المنشأة تحصل على", "Business receives")} <strong>85%</strong> {t("صافي", "net")}</span>
             <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-blue-600 inline-block"></span> {t("الكابتن يحصل على", "Driver receives")} <strong>80%</strong> {t("من رسوم التوصيل", "of delivery fees")}</span>
             <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-orange-500 inline-block"></span> {t("أكسير", "Akseer")} <strong>20%</strong> {t("من رسوم التوصيل", "of delivery fees")}</span>
@@ -191,7 +191,7 @@ export default function Settlements() {
                   <Tooltip contentStyle={{ borderRadius: "8px", border: "none" }} formatter={(v: number, name: string) => [`${v.toLocaleString()} ${t("ر.س", "SAR")}`, name === "businesses" ? t("منشآت", "Businesses") : name === "drivers" ? t("كباتن", "Drivers") : t("عمولة أكسير", "Akseer Commission")]} />
                   <Bar dataKey="businesses" fill="#059669" radius={[3, 3, 0, 0]} maxBarSize={30} />
                   <Bar dataKey="drivers" fill="#2563EB" radius={[3, 3, 0, 0]} maxBarSize={30} />
-                  <Bar dataKey="commission" fill="#7C2D97" radius={[3, 3, 0, 0]} maxBarSize={30} />
+                  <Bar dataKey="commission" fill="#007A65" radius={[3, 3, 0, 0]} maxBarSize={30} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -233,7 +233,7 @@ export default function Settlements() {
                       <TableHead className="font-semibold">{t("المنشأة", "Business")}</TableHead>
                       <TableHead className="font-semibold">{t("الطلبات", "Orders")}</TableHead>
                       <TableHead className="font-semibold">{t("الإيراد الإجمالي", "Gross Revenue")}</TableHead>
-                      <TableHead className="font-semibold text-[#7C2D97]">{t("عمولة أكسير (15%)", "Akseer (15%)")}</TableHead>
+                      <TableHead className="font-semibold text-[#007A65]">{t("عمولة أكسير (15%)", "Akseer (15%)")}</TableHead>
                       <TableHead className="font-semibold text-emerald-700">{t("المبلغ المستحق (85%)", "Net Amount (85%)")}</TableHead>
                       <TableHead className="font-semibold">{t("الحالة", "Status")}</TableHead>
                       <TableHead className="font-semibold">{t("إجراء", "Action")}</TableHead>
@@ -258,7 +258,7 @@ export default function Settlements() {
                           </TableCell>
                           <TableCell className="font-medium">{b.orders}</TableCell>
                           <TableCell className="font-medium">{b.grossRevenue.toLocaleString()} {t("ر.س", "SAR")}</TableCell>
-                          <TableCell className="text-[#7C2D97] font-bold">{commission.toLocaleString()} {t("ر.س", "SAR")}</TableCell>
+                          <TableCell className="text-[#007A65] font-bold">{commission.toLocaleString()} {t("ر.س", "SAR")}</TableCell>
                           <TableCell className="text-emerald-700 font-bold text-base">{net.toLocaleString()} {t("ر.س", "SAR")}</TableCell>
                           <TableCell>
                             {b.status === "pending" ? (
@@ -289,7 +289,7 @@ export default function Settlements() {
               <div className="mt-4 p-4 bg-gray-50 rounded-lg flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                 <div className="flex flex-wrap gap-6 text-sm">
                   <span className="text-gray-600">{t("الإجمالي:", "Total:")} <strong className="text-gray-900">{totalGross.toLocaleString()} {t("ر.س", "SAR")}</strong></span>
-                  <span className="text-[#7C2D97]">{t("عمولة أكسير:", "Akseer:")} <strong>{totalCommission.toLocaleString()} {t("ر.س", "SAR")}</strong></span>
+                  <span className="text-[#007A65]">{t("عمولة أكسير:", "Akseer:")} <strong>{totalCommission.toLocaleString()} {t("ر.س", "SAR")}</strong></span>
                   <span className="text-emerald-700">{t("صافي للمنشآت:", "Net to Businesses:")} <strong>{totalNetBiz.toLocaleString()} {t("ر.س", "SAR")}</strong></span>
                 </div>
               </div>
@@ -307,7 +307,7 @@ export default function Settlements() {
                       <TableHead className="font-semibold">{t("الكابتن", "Driver")}</TableHead>
                       <TableHead className="font-semibold">{t("عدد التوصيلات", "Deliveries")}</TableHead>
                       <TableHead className="font-semibold">{t("إجمالي رسوم التوصيل", "Total Delivery Fees")}</TableHead>
-                      <TableHead className="font-semibold text-[#7C2D97]">{t("عمولة أكسير (20%)", "Akseer (20%)")}</TableHead>
+                      <TableHead className="font-semibold text-[#007A65]">{t("عمولة أكسير (20%)", "Akseer (20%)")}</TableHead>
                       <TableHead className="font-semibold text-blue-700">{t("المبلغ المستحق (80%)", "Net Amount (80%)")}</TableHead>
                       <TableHead className="font-semibold">{t("الحالة", "Status")}</TableHead>
                       <TableHead className="font-semibold">{t("إجراء", "Action")}</TableHead>
@@ -332,7 +332,7 @@ export default function Settlements() {
                           </TableCell>
                           <TableCell className="font-medium">{d.deliveries}</TableCell>
                           <TableCell className="font-medium">{d.deliveryRevenue.toLocaleString()} {t("ر.س", "SAR")}</TableCell>
-                          <TableCell className="text-[#7C2D97] font-bold">{commission.toLocaleString()} {t("ر.س", "SAR")}</TableCell>
+                          <TableCell className="text-[#007A65] font-bold">{commission.toLocaleString()} {t("ر.س", "SAR")}</TableCell>
                           <TableCell className="text-blue-700 font-bold text-base">{net.toLocaleString()} {t("ر.س", "SAR")}</TableCell>
                           <TableCell>
                             {d.status === "pending" ? (
@@ -362,7 +362,7 @@ export default function Settlements() {
               </div>
               <div className="mt-4 p-4 bg-gray-50 rounded-lg flex flex-wrap gap-6 text-sm">
                 <span className="text-gray-600">{t("إجمالي رسوم التوصيل:", "Total Delivery Fees:")} <strong className="text-gray-900">{totalDeliveryRevenue.toLocaleString()} {t("ر.س", "SAR")}</strong></span>
-                <span className="text-[#7C2D97]">{t("عمولة أكسير:", "Akseer:")} <strong>{Math.round(totalDeliveryRevenue * DELIVERY_COMMISSION).toLocaleString()} {t("ر.س", "SAR")}</strong></span>
+                <span className="text-[#007A65]">{t("عمولة أكسير:", "Akseer:")} <strong>{Math.round(totalDeliveryRevenue * DELIVERY_COMMISSION).toLocaleString()} {t("ر.س", "SAR")}</strong></span>
                 <span className="text-blue-700">{t("صافي للكباتن:", "Net to Drivers:")} <strong>{totalNetDrivers.toLocaleString()} {t("ر.س", "SAR")}</strong></span>
               </div>
             </CardContent>

@@ -10,7 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect, useCallback } from "react";
 import { useAdminLang } from "@/contexts/AdminLanguageContext";
 
-const PIE_COLORS = ["#A86DBF", "#7C2D97", "#0E7490", "#BE185D", "#92400E", "#059669", "#6366F1"];
+const PIE_COLORS = ["#00E0B8", "#00C4A0", "#007A65", "#0EA5E9", "#F59E0B", "#22C55E", "#6366F1"];
 const APP_COMMISSION = 0.15;
 
 const fetchPending = async () => {
@@ -165,7 +165,7 @@ export default function Dashboard() {
     { title: t("المنشآت النشطة", "Active Businesses"), value: (stats.activeBusinesses || 0).toLocaleString(), icon: Store, color: "text-emerald-600", bg: "bg-emerald-50" },
     { title: t("انتظار الموافقة", "Pending Approval"), value: totalPending.toLocaleString(), icon: AlertCircle, color: "text-amber-600", bg: "bg-amber-50", onClick: () => setLocation("/businesses?status=pending"), clickable: true },
     { title: t("الإيراد الشهري", "Monthly Revenue"), value: `${monthlyRevenue.toLocaleString()} ${t("ر.س", "SAR")}`, icon: DollarSign, color: "text-teal-600", bg: "bg-teal-50" },
-    { title: t("عمولة أكسير (15%)", "Akseer Commission (15%)"), value: `${appCommission.toLocaleString()} ${t("ر.س", "SAR")}`, icon: TrendingUp, color: "text-violet-600", bg: "bg-violet-50", onClick: () => setLocation("/settlements"), clickable: true },
+    { title: t("عمولة أكسير (15%)", "Akseer Commission (15%)"), value: `${appCommission.toLocaleString()} ${t("ر.س", "SAR")}`, icon: TrendingUp, color: "text-teal-600", bg: "bg-teal-50", onClick: () => setLocation("/settlements"), clickable: true },
   ];
 
   const { value: currentRev, change } = getCurrentRevenue(period, periodData);
@@ -214,7 +214,7 @@ export default function Dashboard() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <CardTitle className="text-lg flex items-center gap-2">
-                <Activity className="w-5 h-5 text-[#7C2D97]" />
+                <Activity className="w-5 h-5 text-[#007A65]" />
                 {t("تحليل الإيرادات", "Revenue Analysis")}
               </CardTitle>
               <p className="text-xs text-gray-500 mt-0.5">{PERIOD_DESC[period]}</p>
@@ -225,7 +225,7 @@ export default function Dashboard() {
                   key={p}
                   onClick={() => setPeriod(p)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                    period === p ? "bg-[#7C2D97] text-white shadow-sm" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                    period === p ? "bg-[#007A65] text-white shadow-sm" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                   }`}
                 >
                   {PERIOD_LABELS[p]}
@@ -239,7 +239,7 @@ export default function Dashboard() {
         </CardHeader>
         <CardContent>
           <div className="flex flex-col md:flex-row gap-6">
-            <div className="md:w-48 shrink-0 bg-gradient-to-br from-[#1e0a2e] to-[#3d1058] rounded-xl p-5 text-white flex flex-col justify-between">
+            <div className="md:w-48 shrink-0 bg-gradient-to-br from-[#0D1B2A] to-[#07564A] rounded-xl p-5 text-white flex flex-col justify-between">
               <div>
                 <p className="text-white/60 text-xs mb-1">{t("الإيراد /", "Revenue /")} {PERIOD_UNIT[period]}</p>
                 <h2 className="text-2xl md:text-3xl font-bold leading-tight">
@@ -268,8 +268,8 @@ export default function Dashboard() {
                 <AreaChart data={periodData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
                   <defs>
                     <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#7C2D97" stopOpacity={0.25} />
-                      <stop offset="95%" stopColor="#7C2D97" stopOpacity={0} />
+                      <stop offset="5%" stopColor="#007A65" stopOpacity={0.25} />
+                      <stop offset="95%" stopColor="#007A65" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E5E7EB" />
@@ -279,7 +279,7 @@ export default function Dashboard() {
                     contentStyle={{ borderRadius: "8px", border: "none", boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)", fontSize: 12 }}
                     formatter={(v: number) => [`${v.toLocaleString()} ${t("ر.س", "SAR")}`, t("الإيراد", "Revenue")]}
                   />
-                  <Area type="monotone" dataKey="v" stroke="#7C2D97" strokeWidth={2.5} fill="url(#revenueGradient)" dot={false} activeDot={{ r: 4, fill: "#7C2D97" }} />
+                  <Area type="monotone" dataKey="v" stroke="#007A65" strokeWidth={2.5} fill="url(#revenueGradient)" dot={false} activeDot={{ r: 4, fill: "#007A65" }} />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
@@ -331,7 +331,7 @@ export default function Dashboard() {
               {pendingItems?.slice(0, 5).map((item: any, idx: number) => (
                 <div key={idx} className="flex items-center justify-between py-3 gap-2">
                   <div className="flex items-center gap-3 min-w-0">
-                    <Badge variant="outline" className={`shrink-0 border-none text-xs ${item.entityType === "business" ? "bg-blue-50 text-blue-700" : "bg-violet-50 text-violet-700"}`}>
+                    <Badge variant="outline" className={`shrink-0 border-none text-xs ${item.entityType === "business" ? "bg-blue-50 text-blue-700" : "bg-teal-50 text-teal-700"}`}>
                       {item.entityType === "business" ? t("منشأة", "Business") : t("سائق", "Driver")}
                     </Badge>
                     <div className="min-w-0">
@@ -350,7 +350,7 @@ export default function Dashboard() {
               ))}
               {(pendingItems?.length || 0) > 5 && (
                 <div className="pt-3 text-center">
-                  <Link href="/businesses?status=pending" className="text-sm font-medium text-[#7C2D97] hover:underline flex items-center justify-center gap-1">
+                  <Link href="/businesses?status=pending" className="text-sm font-medium text-[#007A65] hover:underline flex items-center justify-center gap-1">
                     {t("عرض الكل", "View All")} {isRTL ? <ArrowLeft className="w-3 h-3" /> : <ArrowRight className="w-3 h-3" />}
                   </Link>
                 </div>
@@ -372,15 +372,15 @@ export default function Dashboard() {
                 <AreaChart data={growthData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
                   <defs>
                     <linearGradient id="colorUsers" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#A86DBF" stopOpacity={0.3} />
-                      <stop offset="95%" stopColor="#A86DBF" stopOpacity={0} />
+                      <stop offset="5%" stopColor="#00C4A0" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="#00C4A0" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E5E7EB" />
                   <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: "#6B7280", fontSize: 12 }} />
                   <YAxis axisLine={false} tickLine={false} tick={{ fill: "#6B7280", fontSize: 12 }} />
                   <Tooltip contentStyle={{ borderRadius: "8px", border: "none", boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)" }} />
-                  <Area type="monotone" dataKey="users" stroke="#7C2D97" strokeWidth={3} fillOpacity={1} fill="url(#colorUsers)" />
+                  <Area type="monotone" dataKey="users" stroke="#007A65" strokeWidth={3} fillOpacity={1} fill="url(#colorUsers)" />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
@@ -426,7 +426,7 @@ export default function Dashboard() {
           <div className="space-y-3">
             {topBusinesses.map((item, i) => (
               <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-                <div className="w-9 h-9 bg-white rounded-lg flex items-center justify-center shadow-sm text-[#7C2D97] font-bold border border-gray-100 shrink-0 text-sm">
+                <div className="w-9 h-9 bg-white rounded-lg flex items-center justify-center shadow-sm text-[#007A65] font-bold border border-gray-100 shrink-0 text-sm">
                   {i + 1}
                 </div>
                 <div className="flex-1 min-w-0">

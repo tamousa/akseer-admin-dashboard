@@ -9,7 +9,7 @@ export const CATEGORY_LABELS: Record<string, string> = {
 };
 
 export const CATEGORY_COLORS: Record<string, string> = {
-  store: "bg-[#7C3AED]/10 text-[#7C3AED]",
+  store: "bg-[#007A65]/10 text-[#007A65]",
   clinic: "bg-[#0E7490]/10 text-[#0E7490]",
   lab: "bg-[#0369A1]/10 text-[#0369A1]",
   beauty: "bg-[#BE185D]/10 text-[#BE185D]",

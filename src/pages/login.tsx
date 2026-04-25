@@ -78,7 +78,21 @@ export default function Login() {
         </button>
 
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-primary rounded-2xl mx-auto mb-5 flex items-center justify-center text-primary-foreground font-bold text-3xl shadow-md">أ</div>
+          <div className="w-16 h-16 rounded-2xl mx-auto mb-5 overflow-hidden shadow-md">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+              <rect width="64" height="64" rx="16" fill="#0D1B2A"/>
+              <defs>
+                <linearGradient id="lgFlame" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#00E0B8"/>
+                  <stop offset="100%" stopColor="#007A65"/>
+                </linearGradient>
+              </defs>
+              <path d="M32 7 C32 7 18 21 18 34 C18 42.8 24.3 50 32 50 C39.7 50 46 42.8 46 34 C46 21 32 7 32 7Z" fill="url(#lgFlame)"/>
+              <circle cx="32" cy="17" r="6" fill="#00E0B8" opacity="0.9"/>
+              <path d="M27 32 Q29 24 32 22 Q28 30 28 38 Z" fill="rgba(255,255,255,0.4)"/>
+              <text x="32" y="60" textAnchor="middle" fontFamily="Cairo,sans-serif" fontSize="9" fontWeight="bold" fill="#00E0B8">أكسير</text>
+            </svg>
+          </div>
           <h1 className="text-2xl font-bold text-foreground mb-2">{t("title")}</h1>
           <p className="text-muted-foreground">{t("subtitle")}</p>
         </div>
